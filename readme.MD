@@ -49,19 +49,20 @@ A lightweight HTTP/HTTPS proxy server implementation in Python with comprehensiv
 - Python 3.8+
 - UFW (Uncomplicated Firewall)
 - Root or sudo access
+- Git
 
 ## Installation
 
-1. **Update System and Install Dependencies**
+1. **Clone the Repository**
+```bash
+git clone https://github.com/marketcalls/proxy-server.git
+cd proxy-server
+```
+
+2. **Update System and Install Dependencies**
 ```bash
 sudo apt update
 sudo apt install -y python3-venv python3-pip net-tools ufw
-```
-
-2. **Create Project Directory**
-```bash
-mkdir -p /var/python/proxy-server/logs
-cd /var/python/proxy-server
 ```
 
 3. **Set Up Virtual Environment**
@@ -70,9 +71,12 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-4. **Copy Project Files**
-- Ensure all files are in the correct locations as per project structure
-- Set proper permissions:
+4. **Install Python Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+5. **Set Proper Permissions**
 ```bash
 chmod +x proxy_server.py dashboard.sh monitor.sh test_proxy.sh ufw_config.sh
 chmod 644 README.MD proxy_config.MD LICENSE .gitignore
